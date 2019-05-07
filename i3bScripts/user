@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "$USER"
+echo "Hello i am le $USER"
+echo "#FFAE00"
+exit 0
