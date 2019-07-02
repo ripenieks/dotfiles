@@ -44,6 +44,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -56,17 +57,28 @@ let g:airline#extensions#ycm#enabled = 1
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
 " let g:ycm_server_python_interpreter = "/usr/bin/python3"
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" NERDTree stuff
+" hotkey to open it
+map <silent> <C-n> :NERDTreeToggle<CR>
+" start it on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 nnoremap <tab> %
 vnoremap <tab> %
 
 vnoremap <C-c> "+y
 "map <C-p> "+P
-nnoremap <C-,> :bp
-nnoremap <C-.> :bn
+"previous buffer
+nnoremap <leader>, :bp<CR>
+"next buffer
+nnoremap <leader>. :bn<CR>
 
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 filetype plugin indent on
+
 
 " some xml shit
 autocmd FileType xml nnoremap <leader>; i<!--<Space><Space>--><Esc>3hi
