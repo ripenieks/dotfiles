@@ -8,6 +8,9 @@ set undolevels=1000
 
 set nowrap
 
+set foldmethod=syntax
+set foldlevelstart=20
+
 set mouse=a
 
 set visualbell
@@ -15,7 +18,6 @@ set hidden                      "allows working with unsaved buffers
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
 set colorcolumn=140
 
 set exrc
@@ -46,10 +48,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 
@@ -60,8 +62,8 @@ let g:airline_theme = 'wombat'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ycm#enabled = 1
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
-" let g:ycm_server_python_interpreter = "/usr/bin/python3"
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
+""" let g:ycm_server_python_interpreter = "/usr/bin/python3"
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_max_diagnostics_to_display = 100
 
@@ -72,13 +74,14 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
- "nnoremap <C-m> :TlistToggle<CR>
+nnoremap <leader>m :TlistToggle<CR>
 
 nnoremap <tab> %
 vnoremap <tab> %
 
 vnoremap <C-c> "+y
-map <C-p> "+P
+noremap <C-p> "+p
+noremap <C-P> "+P
 "previous buffer
 nnoremap <leader>, :bp<CR>
 "next buffer
@@ -95,7 +98,7 @@ noremap <Down> <nop>
 
 map <leader>]] :vsp<CR><C-w>w:exec("tag ".expand("<cword>"))<CR>
 
-nnoremap <silent> <leader><space> :nohlsearch<CR>
+nnoremap <silent> <space><space> :nohlsearch<CR>
 
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
@@ -104,3 +107,4 @@ filetype plugin indent on
 
 " some xml shit
 autocmd FileType xml nnoremap <leader>; i<!--<Space><Space>--><Esc>3hi
+
