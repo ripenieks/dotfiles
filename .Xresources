@@ -1,4 +1,3 @@
-
 ! big meme
 ! stolen david colors LUL
 urxvt*background: #151515
@@ -11,31 +10,30 @@ URxvt.color1:       #fa2573
 URxvt.color9:       #f6669d
 ! green
 ! URxvt.color2:       #98e123
-URxvt.color2:       #9cff00
+URxvt.color2:       #8fce2b
 URxvt.color10:      #b1e05f
 ! yellow
 URxvt.color3:       #dfd460
 URxvt.color11:      #fff26d
 ! blue
-URxvt.color4:       #1080d0
-URxvt.color12:      #00afff
+URxvt.color4:       #0f68a8
+URxvt.color12:      #156faf
 ! magenta
 URxvt.color5:       #8700ff
 URxvt.color13:      #af87ff
 ! cyan
 URxvt.color6:       #43a8d0
-URxvt.color14:      #51ceff
+URxvt.color14:      #05668c
 ! white
 URxvt.color7:       #bbbbbb
 URxvt.color15: #ffffff
 
-! stolen david font LUL
-URxvt.font:xft:Hack:pixelsize=14
+URxvt*font:xft:Hack Nerd Font:Style=Regular:pixelsize=12
 
 ! some more LUL
 
-!URxvt.boldFont:     xft:Hack:pixelsize=11:weight=bold
-!URxvt.italicFont: xft:Hack:pixelsize=11:slant=italic
+URxvt.boldFont:xft:Hack Nerd Font:Style=Bold:pixelsize=14:weight=bold
+URxvt.italicFont: xft:Hack Nerd Font:pixelsize=14:slant=italic
 
 ! doesnt scroll down everytime output happens
 URxvt*scrollTtyOutput: false
@@ -47,3 +45,6 @@ URxvt.saveLines: 10000
 URxvt.scrollWithBuffer: true
 ! the bottom scroll on output thing
 URxvt.scrollTtyKeypress: true
+! stop the ISO 14755 shit on <C-Shift>
+URxvt.iso14755: false
+URxvt.iso14755_52: false
