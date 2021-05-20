@@ -1,2 +1,2 @@
 # dotfiles
-mani punktiņfaili
+xD
